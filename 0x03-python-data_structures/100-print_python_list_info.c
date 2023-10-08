@@ -7,7 +7,7 @@
 void print_python_list_info(PyObject *p)
 {
 	int numof_elem = Py_SIZE(p);
-	int allo_sz = ((PyListObject*)p)->allocated;
+	int allo_sz = ((PyListObject *)p)->allocated;
 	int i;
 	PyObject *obj;
 
