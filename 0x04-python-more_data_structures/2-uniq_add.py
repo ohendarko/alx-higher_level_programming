@@ -7,4 +7,4 @@ def uniq_add(my_list=[]):
             uniq_list.remove(i)
     for i in range(len(uniq_list)):
         sm += uniq_list[i]
-    return sm 
+    return sm
