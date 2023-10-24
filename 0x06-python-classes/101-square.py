@@ -58,7 +58,9 @@ class Square:
             for i in range(posi[1]):
                 print()
             for i in range(dimen):
-                print(" " * self.__position[0] + "#" * self.__size)
+                print(" " * posi[0] + "#" * dimen)
+        print("\n")
+
     def __str__(self):
         """ Each module, class, and
         method must contain docstring as comments."""
