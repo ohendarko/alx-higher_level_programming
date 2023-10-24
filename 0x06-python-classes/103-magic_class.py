@@ -2,7 +2,7 @@
 """
 Calculating area and circumference
 """
-from math import pi
+import math
 
 
 class MagicClass:
@@ -15,8 +15,8 @@ class MagicClass:
 
     def area(self):
         """ calculating area and circumference """
-        return self.__radius ** 2 * pi
+        return self.__radius ** 2 * math.pi
 
     def circumference(self):
         """ calculating area and circumference """
-        return 2 * pi * self.__radius
+        return 2 * math.pi * self.__radius
