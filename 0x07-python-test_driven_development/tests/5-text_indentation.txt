@@ -1,0 +1,34 @@
+The ``task4`` module
+======================
+
+Using ``text_indentation``
+-------------------
+
+This is a test file in reStructuredText format.
+First import
+``text_indentation`` from the ``5-text_indentation`` module:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Now use it:
+    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+    ... Quonam modo? Utrum igitur""")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur
+    >>> text_indentation("""Lorem ipsum dolor sit amet?\
+    ... Non autem hoc:semper voluptatis?rationi oboediens.""")
+    Lorem ipsum dolor sit amet?
+    <BLANKLINE>
+    Non autem hoc:
+    <BLANKLINE>
+    semper voluptatis?
+    <BLANKLINE>
+    rationi oboediens.
+    <BLANKLINE>
+    >>>
+    >>> text_indentation("""Lorem ipsum dolor sit amet\
+    ... Non autem hocsemper voluptatisrationi oboediens""")
+    Lorem ipsum dolor sit ametNon autem hocsemper voluptatisrationi oboediens

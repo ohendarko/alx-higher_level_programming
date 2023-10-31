@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+"""
+This module contains a funtion that adds two integers
+Its test is in the test directory
+"""
+
+
+def text_indentation(text):
+    """
+    A function that prints a text with 2 new lines
+    after each of these characters: ., ? and :
+    """
+    if not isinstance(text, str):
+        raise TypeError("text must be a string")
+    lines = text.split('\n')
+    for line in lines:
+        line = line.strip()
+        if line:
+            for char in line:
+                if char in '.?:':
+                    print(char, end='')
+                    print("\n")
+                else:
+                    print(char, end='')
+            print()
+        else:
+            print()
