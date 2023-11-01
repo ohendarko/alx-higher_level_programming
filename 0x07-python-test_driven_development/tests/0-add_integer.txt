@@ -40,3 +40,9 @@ Now use it:
     a must be an integer
     >>> print(add_integer(10.5, 2.3))
     12
+    >>> add_integer(999999999, 1)
+    1000000000
+    >>> add_integer("3", 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
