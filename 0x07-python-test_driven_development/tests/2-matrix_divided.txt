@@ -24,3 +24,8 @@ Now use it:
     Traceback (most recent call last):
     ...
     TypeError: div must be a number
+    >>> matrix = [['ds', 'we', 'me'], ['fe', 'fa' , 'gr']]
+    >>> print(matrix_divided(matrix, 3)) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ....
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
