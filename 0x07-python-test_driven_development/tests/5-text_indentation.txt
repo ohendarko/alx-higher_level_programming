@@ -32,3 +32,11 @@ Now use it:
     >>> text_indentation("""Lorem ipsum dolor sit amet\
     ... Non autem hocsemper voluptatisrationi oboediens""")
     Lorem ipsum dolor sit ametNon autem hocsemper voluptatisrationi oboediens
+    >>> text_indentation(564) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+    >>> text_indentation() #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
