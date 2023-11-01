@@ -20,3 +20,7 @@ Now use it:
     Traceback (most recent call last):
     ...
     ZeroDivisionError: division by zero
+    >>> print(matrix_divided(matrix, "str")) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
