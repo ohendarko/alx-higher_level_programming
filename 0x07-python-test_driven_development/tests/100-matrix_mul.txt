@@ -1,0 +1,101 @@
+The ``task6`` module
+======================
+
+Using ``matrix_mul``
+-------------------
+
+This is a test file in reStructuredText format.
+First import
+``matrix_mul`` from the ``100-matrix_mul`` module:
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Now use it:
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+    [[7, 10], [15, 22]]
+    >>> print(matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+    [[13, 16]]
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]]))
+    [[19, 22], [43, 50]]
+    >>> print(matrix_mul([[1, 2], [3, 4], [3, 4]], [[5, 6, 1], [7, 8, 2]]))
+    [[19, 22, 5], [43, 50, 11], [43, 50, 11]]
+    >>> print(matrix_mul([[12]], [[3, 4], [5, 6]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+    >>> print(matrix_mul([[1, 2, 3, 4]], [[5, 6], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+    >>> print(matrix_mul([[]], [[5, 6], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+    >>> print(matrix_mul([[5, 6], [7, 8]], [[]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+    >>> print(matrix_mul([[5, 6], [7, 8]], [[1, 2, 3, 4]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
+    >>> print(matrix_mul([[1, 2]], [[34], [5, 6]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_b must be of the same size
+    >>> print(matrix_mul([[12], [3, 4]], [[1, 2], [3, 4]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
+    >>> print(matrix_mul([['lo', 'ki'], [3, 4]], [[1, 2], [3, 4]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+    >>> print(matrix_mul([[1, 2], [3, 4]], [['di', 'ip'], [3, 4]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b should contain only integers or floats
+    >>> print(matrix_mul([], [[1, 2], [3, 4]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a can't be empty
+    >>> print(matrix_mul([[1, 2], [3, 4]], [])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_b can't be empty
+    >>> print(matrix_mul([[1, 2], [3, 4]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
+    >>> print(matrix_mul()) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+    >>> print(matrix_mul([1, 2], [[3, 4], [5, 6]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list of lists
+    >>> print(matrix_mul([[3, 4]], [1, 2])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list of lists
+    >>> print(matrix_mul("Holberton", [[5, 6], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a must be a list
+    >>> print(matrix_mul([[5, 6], [7, 8]], "Holberton")) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b must be a list
+    >>> print(matrix_mul([[1, 2, 3], [3, 4]], [[5, 6], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_a must be of the same size
+    >>> print(matrix_mul([[1, 2], [3, 4]], [[5, 6, 1], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: each row of m_b must be of the same size
+    >>> print(matrix_mul([[1, 2, 3], [3, 4, 5]], [[5, 6], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    ValueError: m_a and m_b can't be multiplied
