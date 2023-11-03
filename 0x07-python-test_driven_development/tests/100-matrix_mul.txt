@@ -51,6 +51,14 @@ Now use it:
     Traceback (most recent call last):
     ...
     TypeError: m_a should contain only integers or floats
+    >>> print(matrix_mul([[5, "6"], [7, 8]], [[5, 6], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_a should contain only integers or floats
+    >>> print(matrix_mul([[5, 6], [7, 8]], [[5, "6"], [7, 8]])) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: m_b should contain only integers or floats
     >>> print(matrix_mul([[1, 2], [3, 4]], [['di', 'ip'], [3, 4]])) #doctest +ELLIPSIS
     Traceback (most recent call last):
     ...
