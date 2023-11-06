@@ -1,0 +1,46 @@
+The ``task1`` module
+======================
+
+Using ``print_sorted``
+-------------------
+
+This is a test file in reStructuredText format.
+First import
+``print_soted`` from the ``1-my_list.py`` module:
+
+    >>> MyList = __import__('1-my_list').MyList
+
+Now use it:
+    >>> my_list = MyList()
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+    >>> my_list.append(-5)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5, -5]
+    >>> my_list.print_sorted()
+    [-5, 1, 2, 3, 4, 5]
+    >>> my_list.append(50057)
+    >>> print(my_list)
+    [1, 4, 2, 3, 5, -5, 50057]
+    >>> my_list.print_sorted()
+    [-5, 1, 2, 3, 4, 5, 50057]
+    >>> my_list.append(b) #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    NameError: name 'b' is not defined
+    >>> my_list.append('ji')
+    >>> print(my_list)
+    [1, 4, 2, 3, 5, -5, 50057, 'ji']
+    >>> my_list.print_sorted() #doctest +ELLIPSIS
+    Traceback (most recent call last):
+    ...
+    TypeError: '<' not supported between instances of 'str' and 'int'
