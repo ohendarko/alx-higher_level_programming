@@ -1,8 +1,12 @@
 import unittest
+"""unittest module for 7-base_geometry"""
+
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 class TestBaseGeometry(unittest.TestCase):
+    """class: TestBaseGeometry"""
     def test_area_not_implemented(self):
+        """test funtion I guess"""
         geom = BaseGeometry()
         with self.assertRaises(Exception) as context:
             geom.area()
@@ -12,10 +16,12 @@ class TestBaseGeometry(unittest.TestCase):
         )
 
     def test_integer_validator_valid(self):
+        """test funtion I guess"""
         geom = BaseGeometry()
         geom.integer_validator("side_length", 5)  # Should not raise an exception
 
     def test_integer_validator_invalid_type(self):
+        """test funtion I guess"""
         geom = BaseGeometry()
         with self.assertRaises(TypeError) as context:
             geom.integer_validator("side_length", "invalid")
@@ -25,6 +31,7 @@ class TestBaseGeometry(unittest.TestCase):
         )
 
     def test_integer_validator_invalid_value(self):
+        """test funtion I guess"""
         geom = BaseGeometry()
         with self.assertRaises(ValueError) as context:
             geom.integer_validator("side_length", 0)
