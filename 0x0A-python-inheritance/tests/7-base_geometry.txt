@@ -1,0 +1,37 @@
+import unittest
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+class TestBaseGeometry(unittest.TestCase):
+    def test_area_not_implemented(self):
+        geom = BaseGeometry()
+        with self.assertRaises(Exception) as context:
+            geom.area()
+        self.assertEqual(
+            str(context.exception),
+            "area() is not implemented"
+        )
+
+    def test_integer_validator_valid(self):
+        geom = BaseGeometry()
+        geom.integer_validator("side_length", 5)  # Should not raise an exception
+
+    def test_integer_validator_invalid_type(self):
+        geom = BaseGeometry()
+        with self.assertRaises(TypeError) as context:
+            geom.integer_validator("side_length", "invalid")
+        self.assertEqual(
+            str(context.exception),
+            "side_length must be an integer"
+        )
+
+    def test_integer_validator_invalid_value(self):
+        geom = BaseGeometry()
+        with self.assertRaises(ValueError) as context:
+            geom.integer_validator("side_length", 0)
+        self.assertEqual(
+            str(context.exception),
+            "side_length must be greater than 0"
+        )
+
+if __name__ == "__main__":
+    unittest.main()
