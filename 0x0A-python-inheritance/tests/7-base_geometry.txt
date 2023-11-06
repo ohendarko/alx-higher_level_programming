@@ -1,44 +1,49 @@
-import unittest
-"""unittest module for 7-base_geometry"""
+The ``task7`` module
+======================
 
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+Using ``objects and methods``
+-------------------
 
-class TestBaseGeometry(unittest.TestCase):
-    """class: TestBaseGeometry"""
-    def test_area_not_implemented(self):
-        """test funtion I guess"""
-        geom = BaseGeometry()
-        with self.assertRaises(Exception) as context:
-            geom.area()
-        self.assertEqual(
-            str(context.exception),
-            "area() is not implemented"
-        )
+This is a test file in reStructuredText format.
+First import
 
-    def test_integer_validator_valid(self):
-        """test funtion I guess"""
-        geom = BaseGeometry()
-        geom.integer_validator("side_length", 5)  # Should not raise an exception
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-    def test_integer_validator_invalid_type(self):
-        """test funtion I guess"""
-        geom = BaseGeometry()
-        with self.assertRaises(TypeError) as context:
-            geom.integer_validator("side_length", "invalid")
-        self.assertEqual(
-            str(context.exception),
-            "side_length must be an integer"
-        )
-
-    def test_integer_validator_invalid_value(self):
-        """test funtion I guess"""
-        geom = BaseGeometry()
-        with self.assertRaises(ValueError) as context:
-            geom.integer_validator("side_length", 0)
-        self.assertEqual(
-            str(context.exception),
-            "side_length must be greater than 0"
-        )
-
-if __name__ == "__main__":
-    unittest.main()
+Now use it:
+    >>> a = BaseGeometry()
+    >>> isinstance(a, BaseGeometry)
+    True
+    >>> a.integer_validator("width", 2)
+    >>> a.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+    >>> a.integer_validator("width", -7)
+    Traceback (most recent call last):
+    ValueError: width must be greater than 0
+    >>> a.integer_validator("width", 0)
+    Traceback (most recent call last):
+    ValueError: width must be greater than 0
+    >>> a.integer_validator("width")
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
+    >>> a.integer_validator()
+    Traceback (most recent call last):
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+    >>> a.integer_validator("width", "hi")
+    Traceback (most recent call last):
+    TypeError: width must be an integer
+    >>> a.integer_validator("age", (33,))
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+    >>> a.integer_validator("age", [33])
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+    >>> a.integer_validator("age", True)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+    >>> a.integer_validator("age", {9,1})
+    Traceback (most recent call last):
+    TypeError: age must be an integer
+    >>> a.integer_validator("age", 3.142)
+    Traceback (most recent call last):
+    TypeError: age must be an integer
