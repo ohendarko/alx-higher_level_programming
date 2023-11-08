@@ -5,7 +5,7 @@ import signal
 
 
 def calculate_metrics(log_lines):
-    """Function doc
+    """Function documentation
     """
     total_size = 0
     status_counts = {
@@ -32,7 +32,7 @@ def calculate_metrics(log_lines):
 
 
 def print_metrics(total_size, status_counts):
-    """Function doc
+    """Function documentation
     """
     print("Total file size:", total_size)
     for status_code, count in sorted(status_counts.items()):
@@ -45,7 +45,7 @@ log_line_counter = 0
 
 
 def handler(signum, frame):
-    """Function doc
+    """Function documentation
     """
     global log_line_counter, log_lines
     if log_line_counter > 0:
