@@ -3,8 +3,6 @@
 This is a script that reads stdin line by line
 and computes metrics
 """
-
-
 import signal
 
 
@@ -22,7 +20,6 @@ def calculate_metrics(log_lines):
         405: 0,
         500: 0,
     }
-
     for line in log_lines:
         parts = line.split()
         if len(parts) >= 8:
@@ -31,7 +28,6 @@ def calculate_metrics(log_lines):
             total_size += file_size
             if status_code in status_counts:
                 status_counts[status_code] += 1
-
     return total_size, status_counts
 
 
