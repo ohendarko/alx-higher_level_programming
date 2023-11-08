@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Module documentation
 """
-import json
 
 
 def pascal_triangle(n):
