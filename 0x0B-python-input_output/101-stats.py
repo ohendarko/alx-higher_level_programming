@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import signal
 """
 This is a script that reads stdin line by line
 and computes metrics
 """
+import signal
 
 
 def calculate_metrics(log_lines):
