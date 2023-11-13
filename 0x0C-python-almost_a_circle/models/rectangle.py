@@ -79,5 +79,17 @@ class Rectangle(Base):
 
     def display(self):
         """class method"""
+        for i in range(self.y):
+            print()
         for i in range(self.height):
-            print('#' * self.width)
+            print(" " * self.x + '#' * self.width)
+
+    def __str__(self):
+        """class method"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args):
+        """class method"""
+        attributes = ['id', 'width', 'height', 'x', 'y']
+        for i in range(len(args)):
+            setattr(self, attributes[i], args[i])        
