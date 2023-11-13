@@ -32,14 +32,14 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-         """class Method"""
-         if not dictionary:
-             return cls(1)
-         required_attributes = cls.__init__.__code__.co_varnames[1:]
-         dummy_values = {attr: 1 for attr in required_attributes}
-         dummy_values.update(dictionary)
-         dummy_instance = cls(**dummy_values)
-         return dummy_instance
+        """class Method"""
+        if not dictionary:
+            return cls(1)
+        required_attributes = cls.__init__.__code__.co_varnames[1:]
+        dummy_values = {attr: 1 for attr in required_attributes}
+        dummy_values.update(dictionary)
+        dummy_instance = cls(**dummy_values)
+        return dummy_instance
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -62,7 +62,6 @@ class Base:
                 return instances
         except FileNotFoundError:
             return []
-
 
     @classmethod
     def save_to_file_csv(cls, list_objs):

@@ -24,7 +24,6 @@ class Rectangle(Base):
         """class method"""
         return cls(*map(int, row[1:]), id=int(row[0]))
 
-
     @property
     def width(self):
         """class method"""
@@ -112,4 +111,8 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """class method"""
-        return {"x": self.x, "y": self.y, "id": self.id, "height": self.height, "width": self.width}
+        return {"x": self.x,
+                "y": self.y,
+                "id": self.id,
+                "height": self.height,
+                "width": self.width}
