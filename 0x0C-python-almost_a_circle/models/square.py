@@ -34,3 +34,7 @@ class Square(Rectangle):
        """class method"""
        return "[Square] ({}) {}/{} - {}"\
               .format(self.id, self.x, self.y, self.width)
+
+    def to_dictionary(self):
+       """class method"""
+       return {"id": self.id, "size": self.size, "x": self.x, "y": self.y} 
