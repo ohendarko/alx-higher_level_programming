@@ -37,4 +37,13 @@ class Square(Rectangle):
 
     def to_dictionary(self):
        """class method"""
-       return {"id": self.id, "size": self.size, "x": self.x, "y": self.y} 
+       return {"id": self.id, "size": self.size, "x": self.x, "y": self.y}
+
+    def to_csv_row(self):
+        """class method"""
+        return [self.id, self.width, self.x, self.y]
+
+    @classmethod
+    def create_from_csv_row(cls, row):
+        """class method"""
+        return cls(*map(int, row[1:]), id=int(row[0]))

@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """first class"""
+import csv
 import json
 
 
@@ -51,12 +52,35 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """class Method"""
         filename = cls.__name__ + ".json"
         try:
             with open(filename, mode="r", encoding="utf-8") as f:
                 json_string = f.read()
                 dictionaries = cls.from_json_string(json_string)
                 instances = [cls.create(**d) for d in dictionaries]
+                return instances
+        except FileNotFoundError:
+            return []
+
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """class Method"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, mode="w", encoding="utf-8", newline="") as csvfile:
+            csv_writer = csv.writer(csvfile)
+            for obj in list_objs:
+                csv_writer.writerow(obj.to_csv_row())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """class Method"""
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, mode="r", encoding="utf-8", newline="") as csvfile:
+                csv_reader = csv.reader(csvfile)
+                instances = [cls.create_from_csv_row(row) for row in csv_reader]
                 return instances
         except FileNotFoundError:
             return []
