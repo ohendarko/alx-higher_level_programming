@@ -14,7 +14,7 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-    
+
     @property
     def width(self):
         """class method"""
@@ -72,7 +72,7 @@ class Rectangle(Base):
             raise TypeError(f"{attribute_name} must be an integer")
         if value < 0:
             raise ValueError(f"{attribute_name} must be >= 0")
-    
+
     def area(self):
         """class method"""
         return self.width * self.height
@@ -86,7 +86,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """class method"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}"\
+               .format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         """class method"""
