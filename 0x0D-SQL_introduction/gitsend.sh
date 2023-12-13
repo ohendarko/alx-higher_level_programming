@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Check if a commit message is provided as an argument
-if [ -z "$1" ]; then
-  commit_message="submit"
+# Check if commit message is provided, otherwise use 'submit'
+if [ -n "$1" ]; then
+    commit_message="$*"
 else
-  commit_message="$1"
+    commit_message='submit'
 fi
 
 git add .
