@@ -8,7 +8,7 @@ class Rectangle {
     }
   }
 
-  valid(wh) {
+  valid (wh) {
     return Number.isInteger(wh) && wh > 0;
   }
 }
