@@ -2,4 +2,4 @@
 
 let myVar = 333;
 
-module.exports = { myVar };
+module.exports.myVar = myVar;
