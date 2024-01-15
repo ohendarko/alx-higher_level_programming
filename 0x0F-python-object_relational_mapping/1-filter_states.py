@@ -6,6 +6,7 @@ import sys
 
 
 def list_states_starting_with_n(username, password, database_name):
+    """Function that..."""
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=username, passwd=password, db=database_name)
     cursor = db.cursor()
