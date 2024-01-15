@@ -10,8 +10,8 @@ def list_cities_by_state(username, password, database_name, state_name):
                          user=username, passwd=password, db=database_name)
     cursor = db.cursor()
     query = ("SELECT cities.* FROM cities JOIN states ON"
-             "cities.state_id = states.id"
-             "WHERE states.name = %s ORDER BY cities.id ASC")
+             " cities.state_id = states.id"
+             " WHERE states.name = %s ORDER BY cities.id ASC")
     cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
     for row in rows:
