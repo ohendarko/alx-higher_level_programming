@@ -11,13 +11,12 @@ def list_cities_by_state(username, password, database_name, state_name):
     cursor = db.cursor()
     query = ("SELECT states.name, cities.name FROM cities "
              "INNER JOIN states ON cities.state_id = states.id "
-             "WHERE states.name = %s "
              "ORDER BY cities.id ASC")
-    cursor.execute(query, (state_name.encode(),))
+    cursor.execute(query)
     rows = cursor.fetchall()
 
-    for cities in rows:
-        print(", ".join(cities))
+    print(", ".join([cities[1] for cities in rows
+                     if sys.argv[4] == cities[0]]))
 
     cursor.close()
     db.close()
