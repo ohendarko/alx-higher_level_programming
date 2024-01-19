@@ -24,4 +24,8 @@ if __name__ == "__main__":
         print("Usage: script.py <username> <password> <database_name>")
         sys.exit(1)
     username, password, database_name = sys.argv[1:4]
-    list_states_starting_with_n(username, password, database_name)
+    try:
+        list_states_starting_with_n(username, password, database_name)
+    except MySQLdb.Error as e:
+        print(f"Error: {e}")
+        sys.exit(1)
