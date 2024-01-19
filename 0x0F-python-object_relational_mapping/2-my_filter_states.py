@@ -14,7 +14,7 @@ def search_states(username, password, database_name, state_name):
                          passwd=password, db=database_name)
     cursor = db.cursor()
     query = ("SELECT * FROM states WHERE name LIKE"
-             " '{}'").format(state_name)
+             " '{}' ORDER BY states.id ASC").format(state_name)
     cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
