@@ -9,13 +9,13 @@ def list_states_starting_with_n(username, password, database_name):
     """Function that..."""
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=username, passwd=password, db=database_name)
-    cursor = db.cursor()
+    c = db.cursor()
     query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
-    cursor.execute(query)
-    rows = cursor.fetchall()
+    c.execute(query)
+    rows = c.fetchall()
     for row in rows:
         print(row)
-    cursor.close()
+    c.close()
     db.close()
 
 
