@@ -10,7 +10,7 @@ from sqlalchemy.sql import text
 
 
 def search_state_by_name(username, password, database_name, state_name):
-    db_url = f"mysql: //{username}: {password}@localhost: 3306/{database_name}"
+    db_url = f"mysql://{username}:{password}@localhost:3306/{database_name}"
     engine = create_engine(db_url, echo=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)

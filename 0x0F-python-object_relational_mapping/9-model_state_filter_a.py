@@ -7,7 +7,7 @@ from model_state import Base, State
 
 
 def list_states_with_letter_a(username, password, database_name):
-    db_url = f"mysql: //{username}: {password}@localhost: 3306/{database_name}"
+    db_url = f"mysql://{username}:{password}@localhost:3306/{database_name}"
     engine = create_engine(db_url, echo=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
