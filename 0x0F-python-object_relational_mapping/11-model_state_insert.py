@@ -10,18 +10,15 @@ from sqlalchemy.sql import text
 
 
 def search_state_by_name(username, password, database_name, state_name):
-    db_url = f"mysql://{username}:{password}@localhost:3306/{database_name}"
+    db_url = f"mysql+mysqldb://{username}:{password}@localhost:3306/{database_name}"
     engine = create_engine(db_url, pool_pre_ping=True)
-    Base.metadata.create_all(engine)
+
     Session = sessionmaker(bind=engine)
     session = Session()
-    query = text("SELECT * FROM states WHERE name = :state_name")
-    result = session.execute(query, {"state_name": state_name}).fetchone()
-
-    if result:
-        print(result.id)
-    else:
-        print("Not found")
+    Louisiana = State(name="Louisiana")
+    session.add(Louisiana)
+    session.commit()
+    print(Louisiana.id)
     session.close()
 
 
