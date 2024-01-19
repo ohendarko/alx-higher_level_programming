@@ -7,8 +7,8 @@ from model_state import Base, State
 
 
 def list_states(username, password, database_name):
-    db_url = (f"mysql+mysqldb: //{username}: "
-              f"{password}@localhost: 3306/{database_name}")
+    db_url = (f"mysql+mysqldb://{username}:"
+              f"{password}@localhost:3306/{database_name}")
     engine = create_engine(db_url, pool_pre_ping=True)
 
     Session = sessionmaker(bind=engine)
