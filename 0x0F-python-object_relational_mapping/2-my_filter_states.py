@@ -14,7 +14,7 @@ def search_states(username, password, database_name, state_name):
                          passwd=password, db=database_name)
     cursor = db.cursor()
     query = ("SELECT * FROM states WHERE name LIKE"
-             " '{}' ORDER BY states.id ASC").format(state_name)
+             " '{}'").format(state_name)
     cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
@@ -25,7 +25,7 @@ def search_states(username, password, database_name, state_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: script.py <username> <password> <database> <state>")
+        print("Usage: script.py <u> <p> <d> <state>")
         sys.exit(1)
     username, password, database_name, state_name = sys.argv[1:5]
     search_states(username, password, database_name, state_name)
