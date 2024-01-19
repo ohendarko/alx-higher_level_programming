@@ -8,7 +8,7 @@ from model_state import Base, State
 
 def delete_states_with_letter_a(username, password, database_name):
     db_url = f"mysql://{username}:{password}@localhost:3306/{database_name}"
-    engine = create_engine(db_url, echo=True)
+    engine = create_engine(db_url, pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
