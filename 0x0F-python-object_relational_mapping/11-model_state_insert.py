@@ -16,10 +16,10 @@ def search_state_by_name(username, password, database_name, state_name):
 
     Session = sessionmaker(bind=engine)
     session = Session()
-    Louisiana = State(name="Louisiana")
-    session.add(Louisiana)
+    louisiana = State(name="Louisiana")
+    session.add(louisiana)
     session.commit()
-    print(Louisiana.id)
+    print(louisiana.id)
     session.close()
 
 
