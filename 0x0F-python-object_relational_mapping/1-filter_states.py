@@ -10,7 +10,7 @@ def list_states_starting_with_n(username, password, database_name):
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=username, passwd=password, db=database_name)
     cursor = db.cursor()
-    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC"
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
     cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
