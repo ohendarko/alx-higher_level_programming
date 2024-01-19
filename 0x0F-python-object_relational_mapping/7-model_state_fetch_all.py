@@ -7,12 +7,12 @@ from model_state import Base, State
 
 
 def list_states(username, password, database_name):
-    db_url = f"mysql: //{username}: {password}@localhost: 3306/{database_name}"
-    engine = create_engine(db_url, echo=True)
-    Base.metadata.create_all(engine)
+    db_url = f"mysql+mysqldb: //{username}: {password}@localhost: 3306/{database_name}"
+    engine = create_engine(db_url, pool_pre_ping=True)
+
     Session = sessionmaker(bind=engine)
     session = Session()
-    states = session.query(State).order_by(State.id).all()
+    states = session.query(State).order_by(State.id.asc()).all()
 
     for state in states:
         print(f"{state.id}: {state.name}")
