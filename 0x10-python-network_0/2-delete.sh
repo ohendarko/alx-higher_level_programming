@@ -1,3 +1,3 @@
 #!/bin/bash
 # Takes in a URL...
-curl "$1" -X DELETE -s
+curl -s -X DELETE "$1"
