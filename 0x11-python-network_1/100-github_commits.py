@@ -14,7 +14,7 @@ if __name__ == "__main__":
         for commit in commits[:10]:
             crow = commit.get('sha')
             authName = commit.get('commit',
-                                  {}).get('author',{}).get(
+                                  {}).get('author', {}).get(
                 'name', 'Unknown Author')
             print(f"{crow}: {authName}")
     except ValueError:
