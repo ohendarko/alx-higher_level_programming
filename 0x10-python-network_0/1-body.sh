@@ -1,3 +1,3 @@
 #!/bin/bash
 # Takes in a URL...
-url=$1; curl_response=$(curl -s -o /dev/null -w "%{http_code}" "$url"); echo "$curl_response"
+curl -sL "$1"
