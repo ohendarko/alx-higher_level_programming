@@ -1,3 +1,3 @@
 #!/bin/bash
 # Takes in a URL...
-curl -sI -X OPTIONS "$1" | grep -i allow | awk '{print $2}'
+curl -sI "$1" | grep -i allow | cut -d " " -f 2-
