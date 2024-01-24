@@ -10,6 +10,6 @@ if __name__ == "__main__":
     load = {'email': sys.argv[2]}
     data = urllib.parse.urlencode(load).encode('utf-8')
     req = urllib.request.Request(url=sys.argv[1], data=data, method='POST')
-    with urllib.request.urlopen(sys.argv[1]) as resp:
+    with urllib.request.urlopen(req) as resp:
         body = resp.read().decode('utf-8')
     print(body)
