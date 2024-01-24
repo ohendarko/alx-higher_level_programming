@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""a Python script that takes in a letter
-and sends a POST request to http://0.0.0.0:5000/search_user
-with the letter as a parameter."""
+"""lists 10 commits (from the most recent to oldest)
+of the repository“rails” by the user “rails”
+Uses the GitHub API
+Print all commits by: `<sha>: <author name>` (one by line)"""
 import sys
 import requests
 
@@ -13,7 +14,7 @@ if __name__ == "__main__":
         for commit in commits[:10]:
             crow = commit.get('sha')
             authName = commit.get('commit',
-                                {}).get('author',{}).get(
+                                  {}).get('author',{}).get(
                 'name', 'Unknown Author')
             print(f"{crow}: {authName}")
     except ValueError:
