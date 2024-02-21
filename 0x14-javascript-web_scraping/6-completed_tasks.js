@@ -17,9 +17,9 @@ request.get(api, (err, response, body) => {
   });
   for (const userId in compTask) {
     if (userId === '1') {
-      console.log(`{ '${userId}': ${compTask[userId]},`);
+      console.log(`{'${userId}': ${compTask[userId]},`);
     } else if (userId === '10') {
-      console.log(`'${userId}': ${compTask[userId]} }`);
+      console.log(`'${userId}': ${compTask[userId]}}`);
     } else {
       console.log(`'${userId}': ${compTask[userId]},`);
     }
