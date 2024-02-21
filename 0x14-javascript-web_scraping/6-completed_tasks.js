@@ -1,27 +1,26 @@
 #!/usr/bin/node
-const api = process.argv[2];
+// A script that computes the number of tasks completed by user id.
+
+const args = process.argv;
+const reqURL = args[2];
 const request = require('request');
-
-request.get(api, (err, response, body) => {
-  if (err) {
-    console.error(err);
-  }
-  const resp = JSON.parse(body);
-
-  const compTask = {};
-
-  resp.forEach(resp => {
-    if (resp.completed) {
-      compTask[resp.userId] = (compTask[resp.userId] || 0) + 1;
+request(reqURL, function (error, response, body) {
+  if (error) {
+    console.log('error:', error);
+  } else {
+    const todos = JSON.parse(body);
+    const dash = {};
+    for (let i = 0; i < todos.length; i++) {
+      const status = (todos[i].completed);
+      const key = todos[i].userId.toString();
+      if (status) {
+        if (dash[key]) {
+          dash[key]++;
+        } else {
+          dash[key] = 1;
+        }
+      }
     }
-  });
-  for (const userId in compTask) {
-    if (userId === '1') {
-      console.log(`{'${userId}': ${compTask[userId]},`);
-    } else if (userId === '10') {
-      console.log(`'${userId}': ${compTask[userId]}}`);
-    } else {
-      console.log(`'${userId}': ${compTask[userId]},`);
-    }
+    console.log(dash);
   }
 });
