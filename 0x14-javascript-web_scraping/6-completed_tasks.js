@@ -1,10 +1,9 @@
 #!/usr/bin/node
-const args = process.argv;
-const reqURL = args[2];
+const api = process.argv[2];
 const request = require('request');
-request(reqURL, function (error, response, body) {
-  if (error) {
-    console.log('error:', error);
+request(api, (err, response, body) => {
+  if (err) {
+    console.error(err);
   } else {
     const resp = JSON.parse(body);
     const done = {};
