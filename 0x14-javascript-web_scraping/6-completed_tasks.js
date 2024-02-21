@@ -7,18 +7,18 @@ request(reqURL, function (error, response, body) {
     console.log('error:', error);
   } else {
     const resp = JSON.parse(body);
-    const dash = {};
+    const done = {};
     for (let i = 0; i < resp.length; i++) {
-      const comp_task = (resp[i].completed);
-      const key = resp[i].userId.toString();
-      if (comp_task) {
-        if (dash[key]) {
-          dash[key]++;
+      const compTask = (resp[i].completed);
+      const comp = resp[i].userId.toString();
+      if (compTask) {
+        if (done[comp]) {
+          done[comp]++;
         } else {
-          dash[key] = 1;
+          done[comp] = 1;
         }
       }
     }
-    console.log(dash);
+    console.log(done);
   }
 });
